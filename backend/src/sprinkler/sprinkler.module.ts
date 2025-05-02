@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { SprinklerService } from './sprinkler.service';
 import { SprinklerController } from './sprinkler.controller';
+import { PrismaService } from './prisma.service';
 
 @Module({
   imports: [
@@ -16,6 +17,6 @@ import { SprinklerController } from './sprinkler.controller';
     ]),
   ],
   controllers: [SprinklerController],
-  providers: [SprinklerService],
+  providers: [SprinklerService, PrismaService],
 })
 export class SprinklerModule {}

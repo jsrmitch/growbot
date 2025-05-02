@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model SprinklerSchedule {
+  id         Int      @id @default(autoincrement())
+  name       String
+  daysOfWeek DayOfWeek[]
+  timeOfDay  DateTime   // we ignore the date on this
+  duration   Int      // in seconds
+  events     SprinklerEvent[]
+}
+
+model SprinklerEvent {
+  id         Int       @id @default(autoincrement())
+  timestamp  DateTime
+  action     EventAction
+  reason     Reason
+  duration   Int?      // in seconds, if ON event
+  schedule   SprinklerSchedule? @relation(fields: [scheduleId], references: [id])
+  scheduleId Int?
+}
+
+enum EventAction {
+  ON
+  OFF
+}
+
+enum Reason {
+  MANUAL
+  MICROCONTROLLER_DIED
+  AUTOMATIC
+  WEATHER
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}

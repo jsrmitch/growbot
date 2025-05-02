@@ -28,7 +28,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: url('src/assets/philip-junior-mail-BpUkWK6hfJA-unsplash.jpg') center/cover no-repeat;
+  position: relative;
 }
+#app { position: relative; z-index: 1; }
 
 h1 {
   font-size: 3.2em;

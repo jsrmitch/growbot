@@ -3,28 +3,12 @@ import SprinklerControl from './components/SprinklerControl.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
   <SprinklerControl />
+  <div class="photo-attribution-global" style="margin: 2.5rem auto 1.2rem auto; text-align: center; font-size: 0.93em; color: #888;">
+    Photo by <a href="https://unsplash.com/@oongjr?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener">philip junior mail</a> on <a href="https://unsplash.com/photos/garden-sprinkler-turned-on-BpUkWK6hfJA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener">Unsplash</a>
+  </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
